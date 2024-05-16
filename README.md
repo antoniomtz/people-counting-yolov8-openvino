@@ -1,5 +1,4 @@
-# people-counting-yolov8-openvino
-People Counting System using YoloV8 and OpenVINO
+# People Counting System using YoloV8 and OpenVINO
 
 In this project, I utlized YOLOV8 Object Counting class to develop a real-time people counting system using the YOLOv8 object detection model, optimized for Intel's OpenVINO toolkit to enhance inferencing speed. This system effectively monitors the number of individuals entering and exiting a room, leveraging the optimized YOLOv8 model for accurate people detection under varied conditions.
 
