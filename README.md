@@ -17,7 +17,7 @@ References:
 
 ## Performance
 
-In this clip, you can see the difference (Inference time and FPS) between running yoloV8 natively with pyTorch vs optimized with OpenVINO.
+In this clip, you can see the difference (Inference time and FPS) between running yoloV8 natively with pyTorch vs optimized with OpenVINO using my personal laptop with 11th Gen Intel® Core™ i9-11900H @ 2.50GHz × 16
 
 <div align="center"><img src="optimized.gif" width=900/></div>
 
