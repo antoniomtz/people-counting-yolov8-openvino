@@ -21,40 +21,21 @@ In this clip, you can see the difference (Inference time and FPS) between runnin
 
 <div align="center"><img src="optimized.gif" width=900/></div>
 
-## Pre-requisites (Ubuntu)
-
-1. Install Python,Git, GPU drivers
-
-```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install python3-venv build-essential python3-dev git-all libgl1-mesa-dev
-```
-
-2. Create Virtual Env
+## Build docker image
 
 ```
-python3 -m venv openvino_env
-source openvino_env/bin/activate
+$ docker build . -t people-count
 ```
 
-3. CLone the repository
+## Run docker container
 
 ```
-git clone https://github.com/antoniomtz/people-counting-yolov8-openvino.git
-cd people-counting-yolov8-openvino
+docker run -it --device=/dev/dri --device=/dev/video0 --privileged --group-add=$(stat -c "%g" /dev/dri/render* | head -n 1) -p 8888:8888 people-count
 ```
 
-4. Install the packages
+It will prompt the jupyter lab URL on the console, copy and paste it on your browser:
 
 ```
-python -m pip install --upgrade pip
-pip install wheel setuptools
-pip install -r requirements.txt
-```
-
-5. Launch the Notebook
-
-```
-jupyter lab people-counting.ipynb
+Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=<token>
 ```
