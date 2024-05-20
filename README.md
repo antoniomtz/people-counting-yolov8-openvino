@@ -21,13 +21,15 @@ In this clip, you can see the difference (Inference time and FPS) between runnin
 
 <div align="center"><img src="optimized.gif" width=900/></div>
 
-## Build docker image
+## Docker Installation
+
+### Build docker image
 
 ```
 $ docker build . -t people-count
 ```
 
-## Run docker container
+### Run docker container
 
 ```
 docker run -it --device=/dev/dri --device=/dev/video0 --privileged --group-add=$(stat -c "%g" /dev/dri/render* | head -n 1) -p 8888:8888 people-count
@@ -38,4 +40,20 @@ It will prompt the jupyter lab URL on the console, copy and paste it on your bro
 ```
 Or copy and paste one of these URLs:
         http://localhost:8888/lab?token=<token>
+```
+
+## Run it locally
+
+Run the following commands to create a virtual env on your local system
+
+```
+python3 -m venv jup1
+source jup1/bin/activate
+pip install jupyterlab
+```
+
+Run jupyter notebook:
+
+```
+jupyter lab people-counting.ipynb
 ```
