@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libsm6 \
     libxrender1 \
     libxext6 \
+    python3-tk \
     && rm -rf /var/lib/apt/lists/*
 
 # Install JupyterLab
