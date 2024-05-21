@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     libsm6 \
     libxrender1 \
     libxext6 \
-    python3-tk \
+    tk \
     && rm -rf /var/lib/apt/lists/*
 
 # Install JupyterLab
@@ -21,15 +21,8 @@ RUN pip install --upgrade pip && pip install --no-cache-dir jupyterlab
 # Copy only the necessary file
 COPY people-counting.ipynb /usr/src/app/
 
-# Create a directory for models and change its permissions
-RUN useradd -m jupyteruser
-RUN mkdir models && chown -R jupyteruser:jupyteruser /usr/src/app
-
 # Make port 8888 available to the world outside this container
 EXPOSE 8888
 
-# Use non-root user to run the container
-USER jupyteruser
-
 # Run JupyterLab when the container launches
-CMD ["jupyter-lab", "people-counting.ipynb", "--ip=0.0.0.0", "--port=8888"]
+CMD ["jupyter-lab", "people-counting.ipynb", "--ip=0.0.0.0", "--port=8888","--allow-root"]
